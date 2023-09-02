@@ -18,7 +18,11 @@ public class ResponseEntity<T> {
     public static <T> ResponseEntity success(String msg,T data){
         return new ResponseEntity(200,msg,data);
     }
-    public static <T> ResponseEntity error(String msg){return new ResponseEntity(500,msg,null);}
-    public static <T> ResponseEntity error(int code,String msg){return new ResponseEntity(code,msg,null);}
+    public static <T> ResponseEntity error(String msg){
+    	return new ResponseEntity(500,msg,null);
+    }
+    public static <T> ResponseEntity error(int code,String msg){
+    return new ResponseEntity(code,msg,null);
+    }
 
 }

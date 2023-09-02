@@ -7,9 +7,10 @@ import com.cleansoft.demo.entity.User;
 
 //ユーザー登録
 public interface UserService {
-      //ユーザー登録
-      ResponseEntity addUsers(User user);
-		/*
-		 * //既存ユーザーチェック ResponseEntity findUserAccount(String account);
-		 */
+        //ユーザー登録
+		ResponseEntity addUsers(User user);
+		
+		
+//	    //既存ユーザーチェック
+//		ResponseEntity findUsers(String account);
 }
