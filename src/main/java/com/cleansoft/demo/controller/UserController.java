@@ -27,6 +27,11 @@ public class UserController {
 	 * findUserAccount(@PathVariable("account") String account){ return
 	 * userService.findUserAccount(account); }
 	 */
+    //ログイン
+    @RequestMapping("/loginUsers")
+    public ResponseEntity loginUsers(@RequestBody User user) {
+        return userService.loginUsers(user);
+    }
 
 }
 

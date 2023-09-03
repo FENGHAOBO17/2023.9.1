@@ -13,4 +13,10 @@ public interface UserMapper {
 		
 		//ユーザー既存チェック 
         User findUsers(@Param("account") String account);
+        
+        //ログイン
+        int loginUsers(User user);
+        
+        //passwordチェック
+        User passwordKensa(@Param("account") String account);
 }
