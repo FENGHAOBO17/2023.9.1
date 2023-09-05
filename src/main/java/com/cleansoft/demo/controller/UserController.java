@@ -10,6 +10,8 @@ import com.cleansoft.demo.entity.User;
 import com.cleansoft.demo.service.UserService;
 
 //ユーザー登録
+
+//@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/users")
 public class UserController {

@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
         	return ResponseEntity.success("登録成功");
         }
     }
+    
     //ログイン
 	@Override
 	public ResponseEntity loginUsers(User user) {
@@ -36,8 +37,6 @@ public class UserServiceImpl implements UserService {
         	if(p.getPassword().equals(user.getPassword())){
         		return ResponseEntity.success("ログイン成功");
         	}
-        	System.out.println(user.getPassword());
-        	System.out.println(p.toString());
             return ResponseEntity.error("該当passwordは正しくありません");
         }else {
         	return ResponseEntity.error("該当ユーザー名は存在しません");
