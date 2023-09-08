@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     //ログイン
 	@Override
 	public ResponseEntity loginUsers(User user) {
-		User a = userMapper.findUsers(user.getAccount());
+		User a = userMapper.findUsers(user.getAccount());	
 		User p = userMapper.passwordKensa(user.getAccount());
 		//既存ユーザーチェック
         if (a != null) {
