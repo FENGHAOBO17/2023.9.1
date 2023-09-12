@@ -19,4 +19,7 @@ public interface UserMapper {
         
         //passwordチェック
         User passwordKensa(@Param("account") String account);
+        
+        //addToken
+        User addToken(@Param("token") String token);
 }

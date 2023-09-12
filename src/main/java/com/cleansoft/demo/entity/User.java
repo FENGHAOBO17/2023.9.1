@@ -11,4 +11,6 @@ public class User implements Serializable {
     private String account;
     //パスワード
     private String password;
+    //token
+    private String token;
 }
