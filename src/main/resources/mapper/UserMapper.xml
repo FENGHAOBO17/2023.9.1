@@ -17,4 +17,14 @@
     <select id="passwordKensa" resultType="com.cleansoft.demo.entity.User">
         select password from user where account=#{account}
     </select>
+    
+    <!-- addToken -->
+    <update id="addToken">
+    update user set token = #{token} where account=#{account}
+	</update>
+	
+	<!--既存ユーザーチェック-->
+    <select id="testToken" resultType="com.cleansoft.demo.entity.User">
+        select account from user where account=#{account}
+    </select>
 </mapper>

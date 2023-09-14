@@ -2,13 +2,16 @@ package com.cleansoft.demo.util;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 
+@Component 
 public class JWTUtil {
     //token 过期时间
-    private static final long EXPIRE_TIME = 3*60*1000;
+    private static final long EXPIRE_TIME = 30*60*1000;
 
     //签名生成JWT
     public static String sign(String account,String password){

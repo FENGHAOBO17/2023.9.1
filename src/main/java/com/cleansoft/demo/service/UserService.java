@@ -12,4 +12,7 @@ public interface UserService {
 		
 		//ログイン
 		ResponseEntity loginUsers(User user);
+		
+		//test
+		ResponseEntity testToken(User user);
 }

@@ -28,4 +28,10 @@ public class UserController {
         ResponseEntity responseEntity = userService.loginUsers(user);
         return responseEntity;
     }
+    
+    @RequestMapping("/testToken")
+    public ResponseEntity testToken(@RequestBody User user) {
+        ResponseEntity responseEntity = userService.testToken(user);
+        return responseEntity;
+    }
 }

@@ -21,5 +21,8 @@ public interface UserMapper {
         User passwordKensa(@Param("account") String account);
         
         //addToken
-        User addToken(@Param("token") String token);
+        int addToken(@Param("token") String token,@Param("account") String account);
+        
+        //testToken
+        User testToken(@Param("account") String account);
 }
