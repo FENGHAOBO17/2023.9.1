@@ -22,6 +22,9 @@ public interface UserMapper {
         
         //addToken
         int addToken(@Param("token") String token,@Param("account") String account);
+
+        //selectToken
+        String findToken(@Param("account") String account);
         
         //testToken
         User testToken(@Param("account") String account);

@@ -23,8 +23,13 @@
     update user set token = #{token} where account=#{account}
 	</update>
 	
-	<!--既存ユーザーチェック-->
+	<!-- findToken -->
+	<select id="findToken" resultType="String">
+    select token from user where account=#{account}
+    </select>
+	
+	<!--test-->
     <select id="testToken" resultType="com.cleansoft.demo.entity.User">
-        select account from user where account=#{account}
+    select account from user where account=#{account}
     </select>
 </mapper>

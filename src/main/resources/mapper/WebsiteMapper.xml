@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cleansoft.demo.mapper.WebsiteMapper">
+
+	<!--WebsiteCategoryDto.findAll-->
+    <select id="findAll" resultType="com.cleansoft.demo.entity.dto.WebsiteCategoryDto">
+    SELECT id,category_code AS categoryCodes,category_name AS categoryName,
+		   category_en_name AS categoryEnName,category_icon AS categoryIcon
+	FROM  website_category
+	ORDER BY categoryCodes
+    </select>
+    
+    <!--Website.findAll-->
+    <select id="findWebsite" resultType="com.cleansoft.demo.entity.Website">
+    SELECT id,url,logo,title,d_esc AS des,category_code AS categoryCode
+	FROM  website
+	ORDER BY id
+    </select>
+</mapper>
