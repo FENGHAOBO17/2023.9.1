@@ -38,32 +38,33 @@ public class MyFilter implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
         String uri = req.getRequestURI();
-		if (!uri.startsWith("/#/") && !uri.startsWith("/#/register")) {
+        logger.info("uri:"+uri);
+		if (!uri.equals("/users/loginUsers") && !uri.endsWith("/users/addUsers")) {
             // 拦截除了 /#/ 和 /#/register 以外的路径
+			logger.info("filterスタート");
+			if ((token != null && !token.isEmpty()) && token.startsWith("Bearer")) {
+	            // 去除 "Bearer " 前缀
+	            token = token.substring(7);
+//	            if(dbToken.equals(token)) {
+	            	logger.info("filter採算");	
+	            	if (jwtUtil.verify(token,account,password)){
+	            		// 令牌验证成功，允许请求继续处理
+	            		chain.doFilter(request, response);
+	            		logger.info("filter成功");
+	            		return;
+//	            	}
+	            }
+	        }else {
+	        	logger.info("tokenチェック失敗");
+	        // 令牌验证失败，返回错误响应
+	        HttpServletResponse httpResponse = (HttpServletResponse) response;
+	        httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+	        }
             chain.doFilter(request, response);
             return;
         }
         // 如果需要进行自定义处理，请在此处添加代码
         chain.doFilter(request, response);
-		logger.info("filterスタート");
-		if ((token != null && !token.isEmpty()) && token.startsWith("Bearer")) {
-            // 去除 "Bearer " 前缀
-            token = token.substring(7);
-//            if(dbToken.equals(token)) {
-            	logger.info("filter採算");	
-            	if (jwtUtil.verify(token,account,password)){
-            		// 令牌验证成功，允许请求继续处理
-            		chain.doFilter(request, response);
-            		logger.info("filter成功");
-            		return;
-//            	}
-            }
-        }else {
-        	logger.info("tokenチェック失敗");
-        // 令牌验证失败，返回错误响应
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-        httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        }
 		
 	}
 }
